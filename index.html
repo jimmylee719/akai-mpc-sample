@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akai MPC Sample 終極教學指南 | 從零到 Chill House</title>
+    <title>Akai MPC Sample 保母級終極教學指南 | 從零到大師</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -30,6 +30,7 @@
             color: #e2e8f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
+            line-height: 1.8;
         }
         
         .mpc-pad {
@@ -64,6 +65,28 @@
             background: linear-gradient(to right, rgba(229, 62, 62, 0.1), transparent);
         }
 
+        /* Keyboard Button Style for better reading */
+        kbd {
+            background-color: #2a2a2a;
+            border: 1px solid #555;
+            border-bottom: 3px solid #111;
+            border-radius: 4px;
+            padding: 3px 8px;
+            color: #fff;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.85em;
+            box-shadow: inset 0 -1px 0 #000;
+            margin: 0 2px;
+            display: inline-block;
+        }
+
+        .btn-red {
+            border-color: #e53e3e;
+            border-bottom-color: #7f1d1d;
+            color: #fca5a5;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -91,17 +114,17 @@
             <h1 class="text-xl font-bold tracking-wider text-white">SAMPLE</h1>
         </div>
         <nav class="flex-1 overflow-y-auto py-4" id="sidebar-nav">
-            <a href="#intro" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">1. 認識你的設備</a>
-            <a href="#navigation" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">2. 基礎導覽與專案</a>
-            <a href="#sequencing" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">3. 序列器與錄音 (Sequencing)</a>
-            <a href="#sampling" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">4. 取樣與重新取樣 (Sampling)</a>
-            <a href="#editing" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">5. 聲音編輯與切片 (Chop/Edit)</a>
+            <a href="#intro" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">1. 認識硬體按鈕與邏輯</a>
+            <a href="#navigation" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">2. 基礎專案存取 (載入/存檔)</a>
+            <a href="#sequencing" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">3. 節奏錄音與修錯 (Sequencer)</a>
+            <a href="#sampling" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">4. 錄製聲音 (Sampling)</a>
+            <a href="#editing" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">5. 切片與編輯 (Chop/Edit)</a>
             <a href="#fx" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">6. 效果器與自動化 (FX/Auto)</a>
-            <a href="#arranging" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">7. 歌曲編排 (Song Mode)</a>
-            <a href="#chillhouse" class="nav-link block px-6 py-3 text-sm font-medium text-mpc-red hover:text-red-400 transition-colors font-bold mt-4 border-t border-gray-800 pt-4">🚀 實戰：製作 Chill House</a>
+            <a href="#arranging" class="nav-link block px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors">7. 歌曲編排與輸出 (Song)</a>
+            <a href="#chillhouse" class="nav-link block px-6 py-3 text-sm font-medium text-mpc-red hover:text-red-400 transition-colors font-bold mt-4 border-t border-gray-800 pt-4">🚀 實戰演練：製作 Chill House</a>
         </nav>
         <div class="p-4 border-t border-gray-800 text-xs text-gray-500 text-center">
-            Ultimate Guide v1.0<br>Based on Official Docs
+            Ultimate Guide v2.0<br>超級保母級詳細版
         </div>
     </aside>
 
@@ -122,8 +145,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-mpc-dark border-b border-gray-800 absolute w-full z-10">
             <nav class="flex flex-col py-2">
-                <a href="#intro" class="px-6 py-3 text-sm text-gray-300 border-b border-gray-800">1. 認識你的設備</a>
-                <a href="#navigation" class="px-6 py-3 text-sm text-gray-300 border-b border-gray-800">2. 基礎導覽與專案</a>
+                <a href="#intro" class="px-6 py-3 text-sm text-gray-300 border-b border-gray-800">1. 認識硬體按鈕</a>
+                <a href="#sequencing" class="px-6 py-3 text-sm text-gray-300 border-b border-gray-800">3. 節奏錄音</a>
+                <a href="#fx" class="px-6 py-3 text-sm text-gray-300 border-b border-gray-800">6. 效果器與自動化</a>
                 <a href="#chillhouse" class="px-6 py-3 text-sm text-mpc-red font-bold">🚀 實戰：製作 Chill House</a>
             </nav>
         </div>
@@ -131,32 +155,13 @@
         <!-- Hero Section -->
         <section class="min-h-[50vh] flex flex-col items-center justify-center relative p-8 text-center border-b border-gray-800">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]"></div>
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 relative z-10 tracking-tighter">
-                MASTER THE <span class="text-mpc-red">MPC SAMPLE</span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 relative z-10 tracking-tighter">
+                MPC SAMPLE <span class="text-mpc-red">保母級教學</span>
             </h1>
-            <p class="text-xl text-gray-400 max-w-2xl relative z-10 mb-10 leading-relaxed">
-                從開機到完成第一首完整單曲，這是網路上最完整、結合官方教學與社群技巧的繁體中文指南。
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl relative z-10 mb-10 leading-relaxed">
+                看不懂複雜的說明書？按了按鈕沒反應？<br>
+                這個網站把所有操作拆解成「按什麼 + 會發生什麼」，保證小學生也能學會從 0 到 100 做出完整歌曲。
             </p>
-            
-            <!-- Visual 4x4 Grid representation -->
-            <div class="grid grid-cols-4 gap-3 p-4 bg-mpc-gray rounded-xl relative z-10 border border-gray-700 shadow-2xl">
-                <div class="mpc-pad lit">CHOP</div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad lit">FX</div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad lit">TRIM</div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad lit">WARP</div>
-                <div class="mpc-pad lit">KICK</div>
-                <div class="mpc-pad lit">SNARE</div>
-                <div class="mpc-pad lit">HAT</div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad lit">BASS</div>
-                <div class="mpc-pad lit">CHORD</div>
-                <div class="mpc-pad"></div>
-                <div class="mpc-pad">SEQ</div>
-            </div>
         </section>
 
         <div class="max-w-5xl mx-auto px-6 py-12 space-y-24">
@@ -164,61 +169,68 @@
             <!-- 1. Intro -->
             <section id="intro" class="scroll-mt-8">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">1</div>
-                    <h2 class="text-3xl font-bold text-white">認識你的設備 (硬體概覽)</h2>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">1</div>
+                    <h2 class="text-3xl font-bold text-white">認識你的設備 (硬體與神級快捷鍵)</h2>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 text-gray-300">
-                    <div>
-                        <p class="mb-4">MPC Sample 是一台強大的獨立取樣機，擁有充電電池、內建喇叭與麥克風，讓你能隨時隨地製作節奏。以下是核心硬體區域：</p>
-                        <ul class="space-y-3">
-                            <li><i class="fas fa-square text-mpc-red w-6"></i> <strong>16 個打擊墊 (Pads)：</strong> 具備力度與壓力感應。分為 A 到 H 總共 8 個 Bank。</li>
-                            <li><i class="fas fa-circle text-gray-500 w-6"></i> <strong>控制旋鈕 (Control Knobs)：</strong> 螢幕下方的旋鈕，用於調整畫面上的參數 (如 Trim 裁切點、效果器強度)。</li>
-                            <li><i class="fas fa-sliders-h text-gray-500 w-6"></i> <strong>指派推桿 (Legacy Fader)：</strong> 預設控制選定 Pad 的音量，可透過 <code class="bg-gray-800 px-2 py-1 rounded text-sm text-yellow-400">Shift + Pad 9</code> 更改為控制音高(Tune)、Pan 或 Filter 等。</li>
-                            <li><i class="fas fa-sd-card text-gray-500 w-6"></i> <strong>連接介面：</strong> 後方有 USB-C (傳輸 MIDI/音訊/充電)、Line In/Out、以及 Micro SD 卡槽。</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-                        <h3 class="text-white font-bold mb-4 flex items-center gap-2"><i class="fas fa-bolt text-yellow-400"></i> 黃金快捷鍵 (Shift 功能)</h3>
-                        <p class="text-sm text-gray-400 mb-4">按住 <code>SHIFT</code> 鍵不放，配合其他按鈕會觸發隱藏功能 (印在按鈕下方或 Pad 上的文字)：</p>
-                        <ul class="text-sm space-y-2 font-mono">
-                            <li><span class="text-mpc-red">Shift + Pad 16:</span> 專案管理 (存檔/讀取/SD卡模式)</li>
-                            <li><span class="text-mpc-red">Shift + Pad 15:</span> Warp (時間伸縮開關)</li>
-                            <li><span class="text-mpc-red">Shift + Pad 13:</span> 執行 Truncate (裁切捨棄多餘波形)</li>
-                            <li><span class="text-mpc-red">Shift + Pad 8:</span> MIDI 設定</li>
-                            <li><span class="text-mpc-red">Shift + Pad 5:</span> Color Compressor (染色壓縮器)</li>
-                            <li><span class="text-mpc-red">Shift + Pad FX:</span> 進入 Flex Beat 特效</li>
-                            <li><span class="text-mpc-red">Shift + Sequence:</span> Step Edit (步進編輯模式)</li>
-                        </ul>
+                <div class="text-gray-300 space-y-6">
+                    <p>MPC Sample 是一台小巧但功能強大的取樣機，有喇叭、有電池、有麥克風。我們先來認識機器上最重要的幾個部位，把它的邏輯搞清楚：</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700">
+                            <h3 class="text-xl text-white font-bold mb-4">🖐️ 核心操作區</h3>
+                            <ul class="space-y-4">
+                                <li><strong>16個打擊墊 (Pads)：</strong> 發出聲音的地方。按越大力聲音通常越大（有力度與壓力感應）。左下角有 <kbd>BANK</kbd> 鍵，可以切換 A 到 H 總共 8 個庫，代表你可以裝 128 個不同的聲音！</li>
+                                <li><strong>螢幕與 4 個旋鈕 (Knobs)：</strong> 螢幕下面有四個旋鈕（稱為 Q-Links）。螢幕上顯示什麼參數（例如：音量、效果強弱），這四顆旋鈕就對應控制那四個數值。</li>
+                                <li><strong>大旋鈕 (Encoder)：</strong> 螢幕右邊最大的那顆。用來「滾動選單」與「更改數值」。而且<strong>它可以往下壓！</strong>（往下壓代表「確認 / 載入」）。</li>
+                                <li><strong>推桿 (Fader)：</strong> 左邊的滑動桿。預設用來調你目前選中那個 Pad 的音量。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800/80 p-6 rounded-xl border border-mpc-red/50 shadow-[0_0_15px_rgba(229,62,62,0.1)]">
+                            <h3 class="text-xl text-white font-bold mb-4 flex items-center gap-2">
+                                <i class="fas fa-bolt text-yellow-400"></i> SHIFT 鍵：解鎖隱藏力量
+                            </h3>
+                            <p class="mb-4 text-sm text-gray-400">注意看機器上的按鈕下方，或者打擊墊(Pad)的上方，有沒有印著<span class="text-red-400 font-bold">紅色字體</span>？那代表必須搭配 <kbd class="btn-red">SHIFT</kbd> 鍵才能發動。</p>
+                            <p class="font-bold text-white mb-2">👉 邏輯：按住 <kbd class="btn-red">SHIFT</kbd> 不放 ＋ 按下目標按鈕。</p>
+                            <ul class="text-sm space-y-3 font-mono">
+                                <li><kbd>SHIFT</kbd> + <kbd>Pad 16</kbd> = 進入專案存檔/讀取選單。</li>
+                                <li><kbd>SHIFT</kbd> + <kbd>Sequence</kbd> = 進入 Step Edit (步進編輯，用來修錯)。</li>
+                                <li><kbd>SHIFT</kbd> + <kbd>Pad FX</kbd> = 開啟 Flex Beat (DJ 現場演出特效)。</li>
+                                <li><kbd>SHIFT</kbd> + <kbd>Sample Recall</kbd> = 追回你剛剛亂彈但忘記錄音的 25 秒神來一筆！</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. Navigation & Projects -->
+            <!-- 2. Navigation -->
             <section id="navigation" class="scroll-mt-8">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">2</div>
-                    <h2 class="text-3xl font-bold text-white">基礎導覽與專案管理</h2>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">2</div>
+                    <h2 class="text-3xl font-bold text-white">專案存取：載入音色與存檔</h2>
                 </div>
                 <div class="space-y-6 text-gray-300">
-                    <p>開機後，機器預設會載入 Factory Startup Kits 與 Demo 專案。按綠色的 <code>PLAY</code> 鍵可以直接試聽。</p>
+                    <p>機器開機後預設會有一些聲音，但我們要怎麼換成自己喜歡的鼓組 (Kits)，或是把辛辛苦苦做好的歌存起來？</p>
                     
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-mpc-gray p-5 rounded-lg border border-gray-700">
-                            <h4 class="text-white font-bold mb-2">💿 載入原廠 Kit 或專案</h4>
-                            <ol class="list-decimal pl-5 space-y-2 text-sm">
-                                <li>按住 <code>Shift + Pad 16 (Project)</code></li>
-                                <li>選擇 <strong>Load Project</strong> -> <strong>Kits</strong></li>
-                                <li>旋轉資料旋鈕 (Encoder) 瀏覽曲風，找到喜歡的 Kit 後按下 <strong>Load Kit</strong> 按鈕。</li>
-                                <li><em>註：如果按下旋鈕(Encoder)載入，會連同該 Kit 附帶的 Sequence 一起載入。</em></li>
+                        <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700">
+                            <h4 class="text-white font-bold text-lg mb-4">💿 載入原廠超猛鼓組 (Kits)</h4>
+                            <p class="text-sm text-gray-400 mb-4">機器內建了上百種各種類型的鼓組。</p>
+                            <ol class="list-decimal pl-5 space-y-3 text-sm">
+                                <li>👉 <strong>動作：</strong> 按住 <kbd>SHIFT</kbd> + <kbd>Pad 16 (Project)</kbd>。</li>
+                                <li>👉 <strong>動作：</strong> 選擇螢幕上的 <strong>Load Project</strong>，然後選 <strong>Kits</strong>。</li>
+                                <li>👉 <strong>動作：</strong> 旋轉【大旋鈕 (Encoder)】瀏覽。</li>
+                                <li>💡 <strong>結果：</strong> 找到喜歡的曲風後，按下螢幕下方的 <strong>Load Kit</strong> 按鈕，這整套 16 個聲音就會裝進你的 Pad 裡了！</li>
+                                <li class="text-yellow-500"><em>注意：如果你是「用力壓下」大旋鈕來載入，它會把這個鼓組預設的「示範節奏」一起載入進來喔。</em></li>
                             </ol>
                         </div>
-                        <div class="bg-mpc-gray p-5 rounded-lg border border-gray-700">
-                            <h4 class="text-white font-bold mb-2">💾 管理自己的聲音 (SD卡)</h4>
-                            <ol class="list-decimal pl-5 space-y-2 text-sm">
-                                <li>按住 <code>Shift + Pad 16</code> -> <strong>SD Card Access</strong>。</li>
-                                <li>用 USB-C 連接電腦或手機，將取樣拖曳進 SD 卡。</li>
-                                <li>要載入時：點選一個空白 Pad -> 按 <code>Sample Select</code> -> 切換為 <strong>External</strong>。</li>
-                                <li>進入資料夾，按下旋鈕即可載入聲音到該 Pad。</li>
+                        <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700">
+                            <h4 class="text-white font-bold text-lg mb-4">💾 如何存檔？別讓心血白費！</h4>
+                            <ol class="list-decimal pl-5 space-y-3 text-sm">
+                                <li>👉 <strong>動作：</strong> 按住 <kbd>SHIFT</kbd> + <kbd>Pad 16 (Project)</kbd>。</li>
+                                <li>👉 <strong>動作：</strong> 選擇 <strong>Save Project</strong>。</li>
+                                <li>👉 <strong>動作：</strong> 轉動大旋鈕來幫專案命名。<br>(小撇步：按住 <kbd>SHIFT</kbd> 轉旋鈕可以打大寫英文字母)。</li>
+                                <li>👉 <strong>動作：</strong> 命名完畢後，按下螢幕下方的 <strong>DO IT</strong>。</li>
+                                <li>💡 <strong>結果：</strong> 你的所有設定、聲音、節奏就全部存進機器裡了。如果有插 SD 卡，也可以選擇存到 External (外部記憶卡)。</li>
                             </ol>
                         </div>
                     </div>
@@ -228,35 +240,44 @@
             <!-- 3. Sequencing -->
             <section id="sequencing" class="scroll-mt-8">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">3</div>
-                    <h2 class="text-3xl font-bold text-white">序列器與錄音 (Sequencer & Record)</h2>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">3</div>
+                    <h2 class="text-3xl font-bold text-white">節奏錄音與修錯 (Sequencer)</h2>
                 </div>
                 <div class="text-gray-300 space-y-6">
-                    <p>MPC Sample 有 8 個 Bank，每個 Bank 可存 16 個 Sequence，總共 128 個 Sequence。這代表你可以把一首歌的不同段落 (Intro, Verse, Drop) 分開做在不同的 Sequence 裡。</p>
+                    <p>Sequencer（序列器）就是幫你把你彈的節奏「記錄下來」並「不斷循環播放」的畫布。一台機器有 128 個空的 Sequence 讓你畫畫！</p>
                     
-                    <div class="pro-tip p-5 rounded-r-lg">
-                        <h4 class="text-white font-bold flex items-center gap-2 mb-2"><i class="fas fa-lightbulb"></i> 建立你的第一個 Beat 流程</h4>
-                        <ol class="list-decimal pl-5 space-y-2">
-                            <li>按 <code>SEQUENCE</code> 進入序列模式，點選一個暗色的 Pad (空 Sequence)。</li>
-                            <li>按住 <code>TEMPO</code> 並轉動旋鈕設定 BPM。</li>
-                            <li>用旋鈕 1 將長度從 2 Bars 改成 <strong>4 Bars</strong>。</li>
-                            <li>確認 Quantize (量化) 開啟 (通常設為 1/16)。按住 <code>Shift + Metronome</code> 將節拍器設為 Record Mode。</li>
-                            <li>按下 <code>RECORD</code> + <code>PLAY START</code>，跟著節拍器敲擊 Pad 錄製！MPC 會不斷循環，你可以不斷疊加聲音 (Overdub)。</li>
+                    <div class="pro-tip p-6 rounded-r-lg">
+                        <h4 class="text-white font-bold text-xl flex items-center gap-2 mb-4">🥁 錄製第一個 Beat (保母級步驟)</h4>
+                        <ol class="list-decimal pl-5 space-y-4 text-sm">
+                            <li><strong>進入畫布：</strong> 👉 單按 <kbd>SEQUENCE</kbd> 鍵。這時 16 個 Pad 代表 16 個畫布。亮黃色代表裡面已經有節奏，暗黃色代表是空的。👉 敲擊一個<strong>暗色的 Pad</strong>。</li>
+                            <li><strong>設定速度：</strong> 👉 按住 <kbd>TEMPO</kbd> 鍵不放 ＋ 轉動【大旋鈕】。把它設定到例如 90 BPM。</li>
+                            <li><strong>設定長度：</strong> 預設是 2 小節 (Bars)。👉 轉動螢幕下方第 1 顆旋鈕，把長度調成 <strong>4 Bars</strong>。</li>
+                            <li><strong>打開節拍器：</strong> 👉 按住 <kbd>SHIFT</kbd> + <kbd>Metronome(節拍器)</kbd> 確保它顯示 Record（錄音時才發出噠噠聲）。</li>
+                            <li><strong>開始錄音！：</strong> 👉 <strong>先按住</strong> <kbd>RECORD</kbd>，<strong>同時按下</strong> <kbd>PLAY START</kbd> (綠色鍵)。</li>
+                            <li>💡 <strong>結果：</strong> 機器開始倒數，然後不斷循環 4 小節。你可以先敲大鼓 (Kick)，等它轉回來再補小鼓 (Snare)。不用停下來，這叫 Overdub (疊加錄音)！</li>
                         </ol>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
-                            <h5 class="text-white font-bold mb-2">16 Levels 功能</h5>
-                            <p class="text-sm">按 <code>16 Levels</code>，可以把一個聲音 (如 808 Bass) 依音高 (Pitch) 分佈在 16 個 Pad 上彈奏旋律。也可以切換成分佈力度 (Velocity) 或濾波器 (Filter)，用來打 Hi-hat 超好用！</p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                            <h5 class="text-white font-bold text-lg mb-3">🛠️ 錄錯了怎麼辦？(Step Edit 步進編輯)</h5>
+                            <p class="text-sm mb-3">不需要整段重錄！我們可以直接去把那個錯的音符抓出來改。</p>
+                            <ul class="text-sm space-y-2 list-disc pl-5">
+                                <li>👉 <strong>進入修錯模式：</strong> 按住 <kbd>SHIFT</kbd> + <kbd>Sequence</kbd>。</li>
+                                <li>👉 <strong>找音符：</strong> 轉動【大旋鈕】，這就像時間軸，螢幕會顯示你在哪個時間點，Pad 會亮粉紅色告訴你這個時間點有什麼聲音。</li>
+                                <li>👉 <strong>刪除音符：</strong> 找到錯的聲音，按下螢幕上的 <strong>Erase</strong>。</li>
+                                <li>👉 <strong>微調時間 (神技)：</strong> 找到音符後，<strong>推動左邊的 Fader (推桿)</strong>，你可以把這個音符往前或往後微調 (Off-grid)，用來做出 Dilla 風格那種慵懶、拖拍的節奏超好用！</li>
+                            </ul>
                         </div>
-                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
-                            <h5 class="text-white font-bold mb-2">Step Edit (步進編輯)</h5>
-                            <p class="text-sm">錄錯了？按 <code>Shift + Sequence</code> 進入 Step Edit。轉動旋鈕尋找音符，用<strong>推桿 (Fader)</strong> 微調音符的時間點 (Nudge off-grid) 創造慵懶感，或直接按 Erase 刪除。</p>
-                        </div>
-                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
-                            <h5 class="text-white font-bold mb-2">Swing & Quantize</h5>
-                            <p class="text-sm">在 Sequence 畫面，旋轉專屬的 <strong>Real-time Swing 旋鈕</strong>，讓死板的電子節奏瞬間獲得靈魂。你也可以選定特定 Pad 透過 <code>Shift + Time Correction</code> 讓聲音故意提早或延遲 (Early/Late)。</p>
+                        <div class="bg-gray-800 p-5 rounded-lg border border-gray-700">
+                            <h5 class="text-white font-bold text-lg mb-3">🎹 16 Levels (把一個聲音變成鋼琴)</h5>
+                            <p class="text-sm mb-3">如果你只有一個 808 Bass 的聲音，怎麼彈出旋律？</p>
+                            <ul class="text-sm space-y-2 list-disc pl-5">
+                                <li>👉 <strong>發動條件：</strong> 敲一下你要的那個 Bass Pad。</li>
+                                <li>👉 <strong>啟動：</strong> 按下機器上的 <kbd>16 LEVELS</kbd> 鍵。</li>
+                                <li>💡 <strong>結果：</strong> 現在 16 個 Pad 都變成了這個 Bass 聲音，而且從左下到右上，音高 (Pitch) 越來越高！就像鋼琴鍵盤一樣。</li>
+                                <li>🔥 <strong>進階用法：</strong> 在螢幕上把設定從 Tune (音高) 改成 <strong>Velocity (力度)</strong>。這時 16 個 Pad 音高一樣，但音量從最小到最大。用這個來敲 Hi-hat，可以打出非常真實、有人性化起伏的鼓點！</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -265,37 +286,45 @@
             <!-- 4. Sampling -->
             <section id="sampling" class="scroll-mt-8">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">4</div>
-                    <h2 class="text-3xl font-bold text-white">取樣與重新取樣 (Sampling)</h2>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">4</div>
+                    <h2 class="text-3xl font-bold text-white">錄製聲音 (Sampling 取樣)</h2>
                 </div>
                 <div class="text-gray-300 space-y-6">
-                    <p>MPC 的靈魂就在取樣。你可以透過內建麥克風、黑膠唱盤 (Rear Inputs) 甚至用 USB-C 直接接上手機 (從 Spotify/YouTube/Splice) 取樣。</p>
+                    <p>MPC Sample 可以從麥克風、黑膠唱片，甚至是你的「手機 YouTube / Spotify」直接把聲音錄進去。這也是取樣機最好玩的地方。</p>
 
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-mpc-gray p-5 rounded-lg border border-gray-700">
-                            <h4 class="text-white font-bold mb-2">🎙️ 如何取樣 (以手機 USB 為例)</h4>
-                            <ol class="list-decimal pl-5 space-y-2 text-sm">
-                                <li>用 USB-C 線連接手機與 MPC。</li>
-                                <li>點選一個空的 Pad。</li>
-                                <li>按 <code>SAMPLE RECORD</code>。</li>
-                                <li>將 Input Source 改為 <strong>USB</strong>。</li>
-                                <li>將 Sample Length 設為 <strong>Free</strong> 或 <strong>Sequence</strong> (若你想取樣剛剛好 4 小節)。</li>
-                                <li>敲擊該 Pad 開始監聽並等待訊號，播放手機音樂即開始錄音，再敲一次結束。</li>
-                            </ol>
-                        </div>
-                        <div class="bg-mpc-gray p-5 rounded-lg border border-gray-700 flex flex-col justify-center">
-                            <h4 class="text-white font-bold mb-2 flex items-center gap-2">
-                                <i class="fas fa-history text-green-400"></i> Sample Recall (救場神技)
-                            </h4>
-                            <p class="text-sm mb-2">MPC 會在背景不斷錄製過去 25 秒的聲音。如果你隨手彈了一段超棒的旋律，卻忘記按錄音鍵怎麼辦？</p>
-                            <p class="text-sm font-bold text-mpc-red">按 Shift + Sample Recall</p>
-                            <p class="text-sm mt-2">它會立刻把你剛剛彈的內容變成一個獨立的 Loop 放在新的 Pad 上！</p>
-                        </div>
+                    <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-mpc-red text-white text-xs font-bold px-3 py-1 rounded-bl-lg">最強救場神技</div>
+                        <h4 class="text-white font-bold text-xl mb-3 flex items-center gap-2">
+                            <i class="fas fa-history text-green-400"></i> Sample Recall (時光倒流 25 秒)
+                        </h4>
+                        <p class="mb-3">想像一下：你剛剛隨手在 Pad 上敲出了一段超神的旋律，敲完才驚覺「啊！我剛才沒按錄音鍵！」...在別的機器上你只能哭，但在 MPC Sample：</p>
+                        <p class="text-lg font-bold text-mpc-red mb-3">👉 趕快按下： <kbd>SHIFT</kbd> + <kbd>Sample Recall</kbd> (Pad 10 上方的功能)</p>
+                        <p>💡 <strong>邏輯：</strong> 機器其實在背景「一直偷偷錄音」。按下這個組合鍵，它會直接把你剛剛過去 25 秒彈的所有東西，直接變成一個完整的音檔 (Loop) 放在一個新的 Pad 上給你！完全不用怕靈感流失。</p>
                     </div>
 
-                    <div class="pro-tip p-5 rounded-r-lg mt-4">
-                        <h4 class="text-white font-bold mb-2">♻️ Resampling (重新取樣) - 節省效果器資源</h4>
-                        <p class="text-sm">MPC 的效果器有限，當你掛了破音和 Delay 在一個 Pad 上，你可以按 <code>Sample Record</code> -> 來源選 <strong>Resample</strong> -> 敲擊一個空的 Pad，直接把 "帶有效果器的聲音" 錄下來變成新的 Sample，然後就能關掉原本的效果器給其他聲音用了！</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <h4 class="text-white font-bold text-lg mb-4">📱 如何從手機錄音 (取樣)？</h4>
+                            <ol class="list-decimal pl-5 space-y-2 text-sm">
+                                <li>👉 將 <strong>USB-C 線</strong>一端接機器，一端接手機。</li>
+                                <li>👉 點選一個<strong>空的 Pad</strong> (準備讓聲音住進去)。</li>
+                                <li>👉 按下 <kbd>SAMPLE RECORD</kbd>。</li>
+                                <li>👉 轉動螢幕下方旋鈕，將 Input Source (輸入來源) 改為 <strong>USB</strong>。</li>
+                                <li>👉 將 Sample Length (長度) 設為 <strong>Free</strong> (代表手動控制停止)。</li>
+                                <li>💡 <strong>開始錄：</strong> 敲一下剛剛選的 Pad，螢幕顯示等待訊號。用手機播放 YouTube 音樂，機器就會開始錄。再敲一次 Pad 就停止錄音並存檔！</li>
+                            </ol>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                            <h4 class="text-white font-bold text-lg mb-4">♻️ Resampling (重新取樣)</h4>
+                            <p class="text-sm mb-3">MPC 效果器數量有限。如果你的小鼓掛了破音和 Delay，想把效果器省下來給別的樂器用怎麼辦？</p>
+                            <ol class="list-decimal pl-5 space-y-2 text-sm">
+                                <li>👉 按下 <kbd>SAMPLE RECORD</kbd>。</li>
+                                <li>👉 將輸入來源改為 <strong>Resample</strong> (代表錄機器內部自己的聲音)。</li>
+                                <li>👉 敲擊一個<strong>空的 Pad</strong> 開始錄音。</li>
+                                <li>👉 去敲那個「帶有效果器的小鼓」。</li>
+                                <li>💡 <strong>結果：</strong> 空 Pad 錄到了「已經含有效果器聲音」的小鼓。現在你可以去把原本小鼓的效果器關掉，機器資源就釋放了！</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -303,75 +332,134 @@
             <!-- 5. Editing & Chop -->
             <section id="editing" class="scroll-mt-8">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">5</div>
-                    <h2 class="text-3xl font-bold text-white">聲音編輯與切片 (Edit & Chop)</h2>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">5</div>
+                    <h2 class="text-3xl font-bold text-white">切片與編輯 (Chop & Edit)</h2>
                 </div>
                 <div class="text-gray-300 space-y-6">
-                    <p>按下 <code>SAMPLE</code> 按鈕進入編輯模式，螢幕會顯示波形。下方的四個旋鈕對應畫面的參數。</p>
+                    <p>錄好聲音後，我們要來把它變成音樂素材。👉 按下 <kbd>SAMPLE</kbd> 按鈕進入編輯模式，螢幕會顯示波形。</p>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-center">
-                        <div class="bg-gray-800 p-3 rounded"><span class="block text-white font-bold">TRIM</span>裁切頭尾</div>
-                        <div class="bg-gray-800 p-3 rounded"><span class="block text-white font-bold">TUNE</span>調音/Warp</div>
-                        <div class="bg-gray-800 p-3 rounded"><span class="block text-white font-bold">MIX</span>音量/Pan</div>
-                        <div class="bg-gray-800 p-3 rounded"><span class="block text-white font-bold">FILTER</span>7種濾波器</div>
-                    </div>
-
-                    <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700">
-                        <h3 class="text-white font-bold text-xl mb-4 border-b border-gray-700 pb-2">🔪 Chop Mode (切片模式)</h3>
-                        <p class="mb-4 text-sm">玩 MPC 怎麼能不會 Chop？選定一個鼓組 Loop 或和弦，按下 <code>CHOP</code> 鍵：</p>
-                        <ul class="space-y-4 text-sm">
-                            <li><strong class="text-white">Transients (瞬態)：</strong> 自動偵測鼓點，將大鼓、小鼓拆分到 16 個 Pad。</li>
-                            <li><strong class="text-white">Regions (等分)：</strong> 自動將 Loop 切成 4, 8 或 16 等分。</li>
-                            <li><strong class="text-white">Manual (手動，即 Lazy Chop)：</strong> 這是經典玩法。選 Manual 後按下播放，跟著節奏敲擊 Pad 1, 2, 3... 敲哪裡就切在哪裡！</li>
+                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 mb-6">
+                        <h4 class="text-white font-bold text-lg mb-3">✂️ TRIM 裁切模式 (把不要的靜音去掉)</h4>
+                        <ul class="text-sm space-y-2 list-disc pl-5">
+                            <li>在 SAMPLE 模式下確保第一頁是 <strong>TRIM</strong>。</li>
+                            <li>👉 <strong>轉動旋鈕 1 和 2：</strong> 控制聲音的開始點與結束點。</li>
+                            <li>🔍 <strong>看不清楚波形？：</strong> 👉 按住 <kbd>SHIFT</kbd> ＋ 轉動【大旋鈕】，可以把波形<strong>放大縮小</strong>！非常適合精準剪裁。</li>
+                            <li>🗑️ <strong>刪除多餘部分 (Truncate)：</strong> 👉 調整好頭尾後，按住 <kbd>SHIFT</kbd> + <kbd>Pad 13 (Truncate)</kbd>，機器就會把灰色框框以外的垃圾波形全刪掉，節省記憶體。</li>
                         </ul>
-                        <p class="mt-4 text-sm text-yellow-500"><i class="fas fa-info-circle"></i> 技巧：切完後，想把特定一塊單獨拿出來用？按住 <code>Shift + Extract</code>，它就會被獨立拉出來放到第一個空 Pad 上！</p>
                     </div>
 
-                    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 flex flex-col md:flex-row gap-4 items-center justify-between">
-                        <div>
-                            <h4 class="text-white font-bold">Pad Link (Pad 連結)</h4>
-                            <p class="text-sm mt-1">在 Sample 模式按 Tune 兩次進入 Play Mode，按住 Shift 設定 Pad Link。你可以敲擊 Pad 1 時同時觸發 Pad 2。用來做 <strong>疊鼓 (Layering)</strong>：Pad 1 放肥厚低頻大鼓，Pad 2 放高頻 Click，一鍵觸發完美大鼓！</p>
-                        </div>
+                    <div class="bg-mpc-gray p-6 rounded-xl border border-mpc-red/30">
+                        <h3 class="text-white font-bold text-xl mb-4 border-b border-gray-700 pb-2">🔪 Chop Mode (切片模式 - Hip Hop 靈魂)</h3>
+                        <p class="mb-4 text-sm">如果你取樣了一段 4 秒鐘的人聲或鼓聲，想把它切碎分給 16 個 Pad 重新彈奏：</p>
+                        <p class="mb-3">👉 <strong>啟動：</strong> 選好 Pad，按下 <kbd>CHOP</kbd> 按鈕。</p>
+                        <p class="mb-3 text-sm">螢幕上可以選擇三種切法 (轉動旋鈕切換)：</p>
+                        <ul class="space-y-4 text-sm bg-gray-800 p-4 rounded-lg">
+                            <li><strong>1. Transients (瞬態)：</strong> 機器 AI 自動幫你抓鼓點。打大鼓切一塊、打小鼓切一塊，自動分到 Pad 1, 2, 3...。</li>
+                            <li><strong>2. Regions (等分)：</strong> 不管節奏，直接把波形死板地切成 4, 8 或 16 塊一樣大小的蛋糕。</li>
+                            <li><strong>3. Manual (手動 / Lazy Chop)：</strong> 最酷的玩法。👉 選擇 Manual 後，按下播放，這段聲音開始播... <strong>跟著節奏用手敲 Pad 1, 然後 Pad 2, Pad 3...</strong>。你手敲下去的瞬間，它就切一刀！這叫做憑感覺切片。</li>
+                        </ul>
+                        <p class="mt-4 text-sm text-yellow-500 font-bold">💡 進階技巧：抽出切片 (Extract)</p>
+                        <p class="text-sm text-gray-400">切好 16 塊之後，你覺得 Pad 5 那個人聲 "Yeah!" 特別好聽，想把它獨立拿出來用？<br>
+                        👉 <strong>敲一下 Pad 5</strong> -> 👉 按住 <kbd>SHIFT</kbd> + 螢幕下方的 <strong>Extract</strong> 按鈕 -> 💡 <strong>結果：</strong> 它會直接把這聲 "Yeah!" 獨立變成一個新檔案，放在第一個空的 Pad 上！</p>
                     </div>
                 </div>
             </section>
 
             <!-- 6. Effects -->
-            <section id="fx" class="scroll-mt-8">
+            <section id="fx" class="scroll-mt-8 relative">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl">6</div>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">6</div>
                     <h2 class="text-3xl font-bold text-white">效果器與自動化 (FX & Automation)</h2>
                 </div>
                 <div class="text-gray-300 space-y-6">
-                    <p>MPC Sample 內建超過 60 種高品質效果，分為 4 個強大的效果引擎：</p>
+                    <p class="text-lg text-yellow-500 font-bold border-l-4 border-yellow-500 pl-4">🔥 這是 MPC Sample 最強大的演出武器！必須搞懂這四種效果器的差別與按法：</p>
                     
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-gray-800 p-4 border border-gray-700 rounded-lg">
-                            <h4 class="text-white font-bold text-lg">1. Pad FX</h4>
-                            <p class="text-sm mt-2">按 <code>PAD FX</code>。螢幕顯示 16 種效果。<strong>這是壓力感應的！</strong> 用力壓 Pad 效果就越強 (例如 Low-Fi 或 Flanger)。按住 Pad 再按 <code>LATCH</code> 鍵可以鎖定效果。</p>
+                    <div class="space-y-6">
+                        <!-- Effect 1 -->
+                        <div class="bg-gray-800 p-5 border border-gray-700 rounded-xl relative overflow-hidden">
+                            <div class="absolute right-0 top-0 bg-blue-600 text-white text-xs px-2 py-1 rounded-bl-lg">演出用</div>
+                            <h4 class="text-white font-bold text-xl mb-2">1. Pad FX (打擊墊壓力效果)</h4>
+                            <p class="text-sm text-gray-400 mb-3">這是一組可以直接在現場表演時「刷」出來的效果，Pad 會亮綠色。</p>
+                            <p class="mb-2">👉 <strong>怎麼按：</strong> 單按機器上的 <kbd>PAD FX</kbd> 鍵。</p>
+                            <p class="mb-2">💡 <strong>結果與邏輯：</strong> 螢幕顯示 16 種效果（如 Lo-Fi、Flanger）。這時候 16 個 Pad 就是 16 個效果開關。<strong>它是壓力感應的！</strong> 你輕輕壓 Pad，效果只有一點點；<strong>用力壓到底</strong>，效果強度就會爆表（例如濾波器被完全關閉、殘響變超大）。手一放開，效果就消失。</p>
+                            <p class="text-green-400 font-bold text-sm">🔓 如何鎖定效果 (不用一直按著)？</p>
+                            <p class="text-sm">👉 一手用力按住某個 Pad 效果，另一隻手按下 <kbd>LATCH</kbd> 鍵。💡 結果：效果就被卡住了，你可以把手放開繼續彈別的！再按一次該 Pad 即可解除。</p>
                         </div>
-                        <div class="bg-gray-800 p-4 border border-gray-700 rounded-lg">
-                            <h4 class="text-white font-bold text-lg">2. Flex Beat</h4>
-                            <p class="text-sm mt-2">按 <code>Shift + PAD FX</code> (Pad 會變紫色)。這是表演神器，提供 15 種節奏效果 (Stutter, Tape Stop 磁帶停止, Gate)。現場 Live 必備！</p>
+
+                        <!-- Effect 2 -->
+                        <div class="bg-gray-800 p-5 border border-purple-500/50 rounded-xl relative overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                            <div class="absolute right-0 top-0 bg-purple-600 text-white text-xs px-2 py-1 rounded-bl-lg">神級演出用</div>
+                            <h4 class="text-purple-400 font-bold text-xl mb-2">2. Flex Beat (節奏破壞者)</h4>
+                            <p class="text-sm text-gray-400 mb-3">這是 DJ 和 Beatmaker 現場炸場用的節奏特效，可以讓音樂瞬間停格、碎裂或倒轉。</p>
+                            <p class="mb-2">👉 <strong>怎麼按：</strong> 按住 <kbd>SHIFT</kbd> + 按下 <kbd>PAD FX</kbd>。</p>
+                            <p class="mb-2">💡 <strong>結果與邏輯：</strong> 此時 16 個 Pad 會全部<strong>變成紫色</strong>。播放你的音樂，然後去按這些紫色的 Pad。你會發現音樂會出現 Tape Stop（卡帶停止）、Stutter（跳針重覆）等超炫效果。它會自動對準節拍，你亂按也很好聽！</p>
                         </div>
-                        <div class="bg-gray-800 p-4 border border-gray-700 rounded-lg">
-                            <h4 class="text-white font-bold text-lg">3. Knob FX</h4>
-                            <p class="text-sm mt-2">指定效果給旋鈕操作。例如載入 <strong>Vinyl Emulator</strong> (黑膠模擬器) 或 <strong>Pumper</strong> (現代舞曲必備的 Sidechain Ducking 效果)。可以選擇只套用在特定 Pad 或 All Pads。</p>
+
+                        <!-- Effect 3 -->
+                        <div class="bg-gray-800 p-5 border border-gray-700 rounded-xl relative">
+                            <h4 class="text-white font-bold text-xl mb-2">3. Knob FX (旋鈕效果器 / 混音用)</h4>
+                            <p class="text-sm text-gray-400 mb-3">這是傳統的效果器，用來慢慢轉動數值，或者掛在特定樂器上。</p>
+                            <p class="mb-2">👉 <strong>怎麼按：</strong> 點選螢幕上的 <strong>Knob FX</strong> 分頁。</p>
+                            <p class="mb-2">💡 <strong>邏輯：</strong> 用大旋鈕選擇一個效果（例如 Pumper，這會做出電子音樂常見的 Sidechain 呼吸效果；或是 Vinyl Emulator 黑膠模擬器）。</p>
+                            <ul class="text-sm pl-5 list-disc mt-2 space-y-2">
+                                <li>👉 <strong>套用給誰：</strong> 你可以按一下螢幕上的 <strong>All Pads</strong> (全套用)，或者點擊 <strong>Select Pads</strong> 然後去敲 Pad 1 和 Pad 2 (只把效果掛在 Pad 1 和 2 上)。</li>
+                                <li>👉 <strong>操作：</strong> 轉動螢幕下方的 4 個旋鈕來調整這個效果的細節（如黑膠的雜音大小、Pumper 的速度）。</li>
+                            </ul>
                         </div>
-                        <div class="bg-gray-800 p-4 border border-gray-700 rounded-lg">
-                            <h4 class="text-white font-bold text-lg">4. Color Compressor</h4>
-                            <p class="text-sm mt-2">按 <code>Shift + Pad 5</code>。強大的總線壓縮器，把你的 Beat "黏" 在一起，增加 Punch 感。按 Shift + 推升 Input 可做出飽滿的破音感。</p>
+
+                        <!-- Effect 4 -->
+                        <div class="bg-gray-800 p-5 border border-gray-700 rounded-xl relative">
+                            <h4 class="text-white font-bold text-xl mb-2">4. Color Compressor (總線壓縮器)</h4>
+                            <p class="text-sm text-gray-400 mb-3">讓你的整首 Beat 聽起來更緊實、更大聲、更有 Punch (拳拳到肉的感覺)。</p>
+                            <p class="mb-2">👉 <strong>怎麼按：</strong> 按住 <kbd>SHIFT</kbd> + 按下 <kbd>Pad 5 (Color Comp)</kbd>。</p>
+                            <p class="mb-2">💡 <strong>邏輯：</strong> 這是套用在整個總輸出的。打開它，音樂瞬間變厚實。👉 按住 <kbd>SHIFT</kbd> 並轉動 <strong>Input</strong> 旋鈕，可以刻意把聲音推到過載 (Overdrive)，做出很兇的 Lo-Fi 破音鼓！</p>
                         </div>
                     </div>
 
-                    <div class="pro-tip p-5 rounded-r-lg mt-4">
-                        <h4 class="text-white font-bold mb-2">🎛️ 錄製 Automation (自動化)</h4>
-                        <p class="text-sm">想要讓濾波器 (Filter) 隨著時間慢慢打開？只要在錄音播放時 (Sequence Record + Play)，直接轉動 Filter 旋鈕，MPC 就會把你的動作錄下來！若要刪除，按住 Shift + 轉動該旋鈕即可清除。</p>
+                    <div class="pro-tip p-6 rounded-r-lg mt-6 border-l-4 border-mpc-red">
+                        <h4 class="text-white font-bold text-xl mb-3 flex items-center gap-2">🎛️ 什麼是自動化 (Automation)？怎麼錄？</h4>
+                        <p class="text-sm mb-3">自動化就是：<strong>讓機器幫你「轉旋鈕」</strong>。例如你想讓一個合成器的濾波器 (Filter) 在 4 小節內「慢慢打開」，你不需要手動一直轉，你可以把它錄下來！</p>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-300">
+                            <li>👉 在 Sequence 模式下，確認在錄音狀態 (按下 <kbd>REC</kbd> + <kbd>PLAY START</kbd>)。</li>
+                            <li>👉 當音樂播放時，<strong>直接用手去轉動你要的旋鈕</strong>（例如控制 Filter Cutoff 的那一顆）。</li>
+                            <li>💡 <strong>結果：</strong> 機器會把你手轉動的軌跡記錄下來！下次播放時，你會看到螢幕上的數值自己在那邊跑。</li>
+                            <li>❌ <strong>搞砸了怎麼取消？：</strong> 👉 只要按住 <kbd>SHIFT</kbd> ＋ <strong>輕輕轉一下那顆旋鈕</strong>，它記錄的自動化軌跡就會被清空，你可以重錄一次！</li>
+                        </ol>
                     </div>
                 </div>
             </section>
 
-            <!-- 7. Chill House Tutorial -->
+            <!-- 7. Arranging -->
+            <section id="arranging" class="scroll-mt-8">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-mpc-red text-xl font-bold">7</div>
+                    <h2 class="text-3xl font-bold text-white">歌曲編排與輸出 (Song Mode)</h2>
+                </div>
+                <div class="text-gray-300 space-y-6">
+                    <p>你現在已經在第 3 章 (Sequencer) 做出了好幾個不同的 4 小節節奏（例如 Pad 1 是主歌，Pad 2 是前奏無鼓版，Pad 3 是副歌）。現在我們要把它們串成一首完整的歌！</p>
+                    
+                    <div class="bg-mpc-gray p-6 rounded-xl border border-gray-700">
+                        <h4 class="text-white font-bold text-lg mb-4">🎼 使用 Song Mode 排列段落</h4>
+                        <ol class="list-decimal pl-5 space-y-3 text-sm">
+                            <li>👉 <strong>進入模式：</strong> 按住 <kbd>SHIFT</kbd> + 按下 <kbd>SONG</kbd>。</li>
+                            <li>👉 <strong>插入段落：</strong> 在螢幕上選擇你要插入的 Sequence，按下 <strong>Insert</strong> (插入)。<br>例如你依序插入：前奏(Seq 2) -> 主歌(Seq 1) -> 副歌(Seq 3) -> 結尾(Seq 2)。</li>
+                            <li>💡 <strong>播放整首歌：</strong> 按下播放，它就會照著你排的順序，自動從前奏一路播到結尾。這就是完整的編曲！</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-xl border border-green-500/30">
+                        <h4 class="text-white font-bold text-lg mb-4">📤 把歌曲變成 MP3/WAV 輸出 (Export)</h4>
+                        <ol class="list-decimal pl-5 space-y-3 text-sm">
+                            <li>👉 在 Song Mode 畫面下，按下螢幕上的 <strong>Export</strong> 按鈕。</li>
+                            <li>👉 選擇 <strong>Audio Mixdown</strong>。</li>
+                            <li>💡 <strong>結果：</strong> 機器會把整首歌算成一個音檔 (Audio file) 存進你的 SD 卡裡。你就可以拔出 SD 卡，丟到電腦發給朋友或上傳到 YouTube 啦！</li>
+                            <li><em>（進階：如果選擇 Export as Sequence，它會把整首歌變成一個超級長（例如 32 小節）的單一 Sequence，方便你在現場表演時整首播，然後疊加 Flex Beat 效果！）</em></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Chill House Tutorial -->
             <section id="chillhouse" class="scroll-mt-8 relative">
                 <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 to-black rounded-3xl -z-10"></div>
                 <div class="p-8 border border-mpc-red/30 rounded-3xl shadow-[0_0_30px_rgba(229,62,62,0.1)]">
@@ -379,9 +467,9 @@
                         <div class="w-12 h-12 bg-mpc-red rounded-xl flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(229,62,62,0.5)]">
                             <i class="fas fa-rocket"></i>
                         </div>
-                        <h2 class="text-3xl font-bold text-white">實戰演練：製作一首 Chill House</h2>
+                        <h2 class="text-3xl font-bold text-white">實戰演練：15分鐘做出一首 Chill House</h2>
                     </div>
-                    <p class="text-gray-300 mb-8 text-lg">把前面的觀念全部結合起來，我們要在 15 分鐘內用 MPC Sample 做出並輸出你的第一首電子音樂。</p>
+                    <p class="text-gray-300 mb-8 text-lg">讀完上面的觀念，現在我們一步步來，跟著指令按，保證你能做出第一首歌！</p>
 
                     <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-700 before:to-transparent">
                         
@@ -389,13 +477,12 @@
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">初始化與設定序列器</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>按 <code>Shift + Pad 16</code> -> New Project。</li>
-                                    <li>按 <code>SEQUENCE</code> 進入，選第一排的第一個空 Pad。</li>
-                                    <li>長按 <code>TEMPO</code> 並轉動旋鈕設為 <strong>120 BPM</strong>。</li>
-                                    <li>用旋鈕把小節數 (Bars) 設為 <strong>4</strong>。</li>
-                                    <li>Quantize 設為 <strong>1/16</strong>。</li>
+                                <h4 class="text-white font-bold text-lg mb-2">清空機器與設定速度</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>👉 按 <kbd>SHIFT</kbd> + <kbd>Pad 16</kbd> -> 選 New Project 清空。</li>
+                                    <li>👉 按 <kbd>SEQUENCE</kbd>，選第一個 Pad。</li>
+                                    <li>👉 長按 <kbd>TEMPO</kbd> 轉旋鈕到 <strong>120 BPM</strong> (House 音樂標準速度)。</li>
+                                    <li>👉 轉旋鈕 1 把 Bars 設為 <strong>4</strong> 小節。</li>
                                 </ul>
                             </div>
                         </div>
@@ -404,11 +491,11 @@
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">載入音色 (Deep House Kit)</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>按 <code>Shift + Pad 16</code> -> Load Project -> Kits。</li>
-                                    <li>找到類似 <strong>"Deep House Oxygen"</strong> 或電子類 Kit，按 <code>Load Kit</code> 載入到 Bank A。</li>
-                                    <li>切換到 Bank B，用 <code>Sample Select</code> 載入一些額外的 Chord Stabs (和弦) 與 Vocal 碎音。</li>
+                                <h4 class="text-white font-bold text-lg mb-2">載入 Deep House 音色</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>👉 按 <kbd>SHIFT</kbd> + <kbd>Pad 16</kbd> -> Load Project -> Kits。</li>
+                                    <li>👉 轉大旋鈕找到 <strong>"Deep House Oxygen"</strong> 或類似的電子 Kit。</li>
+                                    <li>👉 按下 <strong>Load Kit</strong> 載入到 Bank A。現在隨便敲幾下，聽聽看你的鼓聲！</li>
                                 </ul>
                             </div>
                         </div>
@@ -417,13 +504,12 @@
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">建立 Groove (錄製鼓組)</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>按 <code>Shift + Metronome</code> 打開節拍器。</li>
-                                    <li>按下 <code>REC + PLAY START</code>。</li>
-                                    <li>先打出 Four-on-the-floor 大鼓 (每拍正拍)。</li>
-                                    <li>等 Sequence 繞回來，疊加 Clap (在 2、4 拍)。</li>
-                                    <li>開啟 <code>16 Levels (Velocity)</code> 打 Hi-hat，讓力度有輕重變化，增加人性化律動。加入微量 Real-time Swing 讓節奏更彈！</li>
+                                <h4 class="text-white font-bold text-lg mb-2">錄製「動次動次」鼓組</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>👉 按 <kbd>REC</kbd> + <kbd>PLAY START</kbd> 開始錄音，會聽到噠噠噠節拍聲。</li>
+                                    <li>👉 <strong>Kick (大鼓)：</strong> 跟著節拍聲，每拍的正拍敲一下。</li>
+                                    <li>👉 <strong>Clap (拍手)：</strong> 在第 2 拍和第 4 拍疊加進去。</li>
+                                    <li>👉 <strong>Hi-hat (雙鈸)：</strong> 打開 <kbd>16 LEVELS</kbd> 設為 Velocity。用不同力度在每一拍的反拍敲擊，增加搖擺感 (Groove)。</li>
                                 </ul>
                             </div>
                         </div>
@@ -432,11 +518,12 @@
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">加入 Bass 與和弦</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>找到一個單音 Bass 樣本，按下 <code>16 Levels (Tune)</code>，現在 16 個 Pad 變成音階了。</li>
-                                    <li>在錄音模式下，跟著鼓點彈奏一段深沉的 Bassline。</li>
-                                    <li>回到 Bank B，挑選一個和弦 (Chord Stab)，彈奏切分音節奏。</li>
+                                <h4 class="text-white font-bold text-lg mb-2">加入低音 (Bassline)</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>👉 找一個單音的 Bass 樣本。</li>
+                                    <li>👉 敲它一下，然後按 <kbd>16 LEVELS</kbd> (確認設定為 Tune)。</li>
+                                    <li>💡 現在 16 個 Pad 變成 Bass 琴鍵了！</li>
+                                    <li>👉 在音樂循環時，用低音 Pad 彈奏一段沉穩的旋律，直接疊加錄進去。</li>
                                 </ul>
                             </div>
                         </div>
@@ -445,43 +532,29 @@
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">5</div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">編曲：複製 Sequence 發展段落</h4>
-                                <p class="text-sm text-gray-400 mb-2">現在你有一個完美的 4 小節 Loop。我們需要拆分成不同段落：</p>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>按住 <code>Shift + Erase (Copy)</code>，把剛做好的 Sequence 複製到另外 3 個空 Pad 上。</li>
-                                    <li><strong>Intro (前奏)：</strong> 點選第 2 個 Sequence，用 <code>Erase</code> 刪除所有鼓和 Bass，只留和弦。</li>
-                                    <li><strong>Build-up (堆疊)：</strong> 點選第 3 個 Sequence，刪除 Kick，加上 Snare roll。</li>
-                                    <li>現在你擁有 Intro、Build-up 和 Drop (原本最豐滿的那個) 三個段落。</li>
+                                <h4 class="text-white font-bold text-lg mb-2">變化段落 (Copy / Erase)</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>現在你有個最豐富的 4 小節段落 (副歌 Drop)。</li>
+                                    <li>👉 在 Sequence 模式，按 <kbd>SHIFT</kbd> + <kbd>Erase(Copy)</kbd>，把它複製到 Pad 2。</li>
+                                    <li>👉 點選 Pad 2 (新的段落)。按 <kbd>Erase</kbd> 刪除大鼓和 Bass。</li>
+                                    <li>💡 恭喜！你得到了一個安靜的「前奏 (Intro)」。</li>
                                 </ul>
                             </div>
                         </div>
 
                         <!-- Step 6 -->
                         <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-mpc-red text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">6</div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-gray-700">
-                                <h4 class="text-white font-bold text-lg mb-2">Song Mode (歌曲編排)</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>按 <code>Shift + SONG</code> 進入歌曲模式。</li>
-                                    <li>依序按下：Intro -> Build-up -> Drop (主歌) -> Intro (結尾)。</li>
-                                    <li>這樣就排好了一首完整結構的歌！</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Step 7 -->
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                             <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#121212] bg-green-500 text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-mpc-gray p-5 rounded-xl border border-green-500/30">
-                                <h4 class="text-white font-bold text-lg mb-2">導出 (Export)</h4>
-                                <ul class="text-sm text-gray-400 space-y-1 list-disc pl-4">
-                                    <li>在 Song Mode 下，按下 <strong>Export</strong> 按鈕。</li>
-                                    <li>選擇 <strong>Audio Mixdown</strong> 將整首歌輸出成音檔，存入你的 SD 卡。</li>
-                                    <li>(或者選 Export as Sequence，把它變成一個超長 16 小節的 Sequence 方便你現場 Live 時疊加 Flex Beat 特效演出！)</li>
+                                <h4 class="text-white font-bold text-lg mb-2">串接成歌並輸出</h4>
+                                <ul class="text-sm text-gray-400 space-y-2 list-none pl-2">
+                                    <li>👉 按 <kbd>SHIFT</kbd> + <kbd>SONG</kbd> 進入歌曲模式。</li>
+                                    <li>👉 插入順序：前奏(Pad 2) -> 副歌(Pad 1) -> 前奏(Pad 2當結尾)。</li>
+                                    <li>👉 按下螢幕上的 <strong>Export</strong> -> Audio Mixdown。</li>
                                 </ul>
-                                <p class="mt-3 text-green-400 font-bold">🎉 恭喜！你完成了第一首 Chill House！</p>
+                                <p class="mt-4 text-green-400 font-bold">🎉 太神啦！你完成了你的第一首 Chill House，並且存成音檔了！</p>
                             </div>
                         </div>
                     </div>
@@ -493,7 +566,7 @@
         <!-- Footer -->
         <footer class="bg-black py-8 text-center border-t border-gray-800 mt-12">
             <h3 class="text-2xl font-black text-white mb-2 tracking-widest">MPC SAMPLE</h3>
-            <p class="text-gray-500 text-sm">此為教學示範網站，內容基於 Akai 官方手冊與 YouTube 教學整理。</p>
+            <p class="text-gray-500 text-sm">此教學網站專為初學者打造，內容基於 Akai 官方手冊與社群技巧整理。</p>
             <p class="text-gray-600 text-xs mt-2">&copy; 2026 Crafted for MPC Users.</p>
         </footer>
 
